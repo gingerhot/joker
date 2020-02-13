@@ -1,0 +1,32 @@
+ports:
+  - name: elasticsearch port
+    port: 5610
+  - name: my port
+    port: 9090
+
+envs:
+  - name: just a hello
+    env: HELLO
+    expected: hello
+  - name: a bar
+    env: BAR
+    expected: bar
+
+paths:
+  - name: abs path
+    path: /x/y/z
+  - name: rel path
+    path: p/d/f
+  - name: rel path file
+    path: envs.go
+
+cmds:
+  - name: ls
+    cmd: ls
+  - name: non exist cmd
+    cmd: xoxox
+
+outputs:
+  - name: test output
+    cmd: ls -la | wc -l
+    expected: 11
