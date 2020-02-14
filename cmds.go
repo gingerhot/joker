@@ -15,11 +15,14 @@ type Cmd struct {
 }
 
 func CheckCmd(c Cmd) string {
+	if c.Cmd == "" {
+		return cmdPrinter(c, false)
+	}
 	return cmdPrinter(c, runChech(c.Cmd))
 }
 
 func runChech(cmd string) bool {
-	c := exec.Command("type", cmd, ">", "/dev/null", "2>&1")
+	c := exec.Command("bash", "-c", "type "+cmd+" >/dev/null 2>&1")
 	err := c.Run()
 	if err != nil {
 		return false
