@@ -38,9 +38,9 @@ Joker is handy, enjoy!
 
 Not special but I just watched the movie [Joker](https://www.imdb.com/title/tt7286456/), and it's more fun than to name it as `dev-env-checker`.
 
-2. Why not add a `match` directive as `expected` in outputs check?
+2. Why not add a `match` directive to undertake pattern matching as `expected` doing exact match in outputs check?
 
-This can be achieved by some shell tricks, for example:
+This can be achieved by some shell tricks along with the `expected` keyword, for example:
 
 ```yaml
 outputs:
