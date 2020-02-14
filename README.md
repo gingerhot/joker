@@ -4,11 +4,11 @@ Joker is a commandline tool used to check your dev environment. If you need a lo
 
 Joker provides several kinds of checking as:
 
-* ports (is open or not?)
-* env variables (is matched or not with the given expected value?)
-* file paths (exists or not?)
-* commands (is available or not?)
-* command outputs (does command output match with the given expected value?)
+* **ports** (is open or not?)
+* **env variables** (is matched or not with the given expected value?)
+* **file paths** (exists or not?)
+* **commands** (is available or not?)
+* **command outputs** (does command output match with the given expected value?)
 
 ## Installation
 
@@ -20,7 +20,7 @@ Note: macOS and Linux supported, not Windows at present.
 
 ## Usage
 
-You can check `example.yaml` to get how to config to check your dev env. It's straight forward and easy to play.
+You can check [example.yaml](../master/example.yaml) to get how to config to check your dev env. It's straight forward and easy to play.
 
 When you have such a yaml-format config file, then run:
 
