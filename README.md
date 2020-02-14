@@ -1,4 +1,4 @@
-# Joker - A commandline tool helps to check your dev environment
+# Joker - Helps to check your dev environment
 
 Joker is a commandline tool used to check your dev environment. If you need a lot of tools and services to serve your development, you'll miss some operation before coding and testing. You may spend some time to debug an odd error and then you find that it's just because you forget starting a service or exporting a PATH. That's aweful!
 
@@ -38,6 +38,18 @@ Joker is handy, enjoy!
 
 Not special but I just watched the movie [Joker](https://www.imdb.com/title/tt7286456/), and it's more fun than to name it as `dev-env-checker`.
 
+2. Why not add a `match` directive as `expected` in outputs check?
+
+This can be achieved by some shell tricks, for example:
+
+```yaml
+outputs:
+  - name: Check Go version
+    cmd: go version | grep -q 'go1.13.6' && echo 'matched'
+    expected: matched
+```
+
+And hope this example can enlighten your tremendous creativity.
 
 ## Contributing
 
