@@ -31,3 +31,18 @@ joker example.yaml
 if you named your config file as exact `joker.yaml`, just run `joker` and it will work perfectly.
 
 Joker is handy, enjoy!
+
+## Q&A
+
+1. Why I name it Joker?
+
+Not special but I just watched the movie [Joker](https://www.imdb.com/title/tt7286456/), and it's more fun than to name it as `dev-env-checker`.
+
+
+## Contributing
+
+Bug reports and pull requests are welcome. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+
+## License
+
+The software is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
