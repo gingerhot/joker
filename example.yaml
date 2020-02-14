@@ -1,5 +1,5 @@
 ports:
-  - name: elasticsearch port
+  - name: kibana port
     port: 5610
   - name: my port
     port: 9090
@@ -13,17 +13,19 @@ envs:
     expected: bar
 
 paths:
+  # absolute path starts with a slash "/"
   - name: abs path
     path: /x/y/z
+  # relative path is to current working dir
   - name: rel path
     path: p/d/f
   - name: rel path file
     path: envs.go
 
 cmds:
-  - name: ls
+  - name: existed cmd
     cmd: ls
-  - name: non exist cmd
+  - name: non existed cmd
     cmd: xoxox
 
 outputs:
