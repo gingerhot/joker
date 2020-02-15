@@ -1,6 +1,8 @@
 # Joker - Helps to check your dev environment
 
-Joker is a commandline tool used to check your dev environment. If you need a lot of tools and services to serve your development, you'll miss some operation before coding and testing. You may spend some time to debug an odd error and then you find that it's just because you forget starting a service or exporting a PATH. That's aweful!
+Joker is a commandline tool used to check your dev environment.
+
+If you need a lot of tools and services in your dev environment, you might miss some operation before coding and testing. Then you'll spend some time to debug an odd error, finally you figured out that it's just because you forgot starting a service or exporting a PATH. That's aweful!
 
 Joker provides several kinds of checking as:
 
@@ -10,13 +12,20 @@ Joker provides several kinds of checking as:
 * **commands** (is available or not?)
 * **command outputs** (does command output match with the given expected value?)
 
+## Compatibility
+
+* macOS and Linux supported, not Windows at present.
+* Bash shell only
+
 ## Installation
+
+Just `go get` if you have a Go environment:
 
 ```sehll
 go get github.com/gingerhot/joker
 ```
 
-Note: macOS and Linux supported, not Windows at present.
+or install a binary from [Releases](https://github.com/gingerhot/joker/releases).
 
 ## Usage
 
