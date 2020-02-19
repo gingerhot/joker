@@ -37,6 +37,8 @@ When you have such a yaml-format config file, then run:
 joker example.yaml
 ```
 
+<img src="https://raw.githubusercontent.com/image-store/github/master/joker.png" >
+
 if you named your config file as exact `joker.yaml`, just run `joker` and it will work perfectly.
 
 Joker is handy, enjoy!
