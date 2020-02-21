@@ -7,8 +7,6 @@ import (
 	"os"
 	"path/filepath"
 	"strings"
-
-	"github.com/fatih/color"
 )
 
 type Path struct {
@@ -16,8 +14,8 @@ type Path struct {
 	Name string
 }
 
-func CheckPath(p Path) string {
-	return pathPrinter(p, doCheck(p.Path))
+func CheckPath(p Path) {
+	pathPrinter(p, doCheck(p.Path))
 }
 
 func doCheck(path string) bool {
@@ -43,10 +41,7 @@ func doCheck(path string) bool {
 	}
 }
 
-func pathPrinter(p Path, b bool) string {
-	cyan := color.New(color.FgCyan).SprintFunc()
-	green := color.New(color.FgGreen).SprintFunc()
-	red := color.New(color.FgRed).SprintFunc()
-	info := map[bool]string{true: green("yes"), false: red("not")}[b]
-	return fmt.Sprintf("Check path %s(%s) exist: %s", cyan(p.Name), cyan(p.Path), info)
+func pathPrinter(p Path, b bool) {
+	result := map[bool]string{true: green("yes"), false: red("not")}[b]
+	fmt.Printf("Check path %s(%s) exist  ...  %s\n", cyan(p.Name), cyan(p.Path), result)
 }

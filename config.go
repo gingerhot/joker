@@ -4,7 +4,15 @@ import (
 	"io/ioutil"
 	"log"
 
+	"github.com/fatih/color"
 	"gopkg.in/yaml.v2"
+)
+
+// colors for printer
+var (
+	cyan  = color.New(color.FgCyan).SprintFunc()
+	green = color.New(color.FgGreen).SprintFunc()
+	red   = color.New(color.FgRed).SprintFunc()
 )
 
 type Config struct {

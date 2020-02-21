@@ -5,8 +5,6 @@ package main
 import (
 	"fmt"
 	"net"
-
-	"github.com/fatih/color"
 )
 
 type Port struct {
@@ -15,8 +13,8 @@ type Port struct {
 }
 
 // Check if the port is serverd
-func CheckPort(p Port) string {
-	return portPrinter(p, portIsServed(p.Port))
+func CheckPort(p Port) {
+	portPrinter(p, portIsServed(p.Port))
 }
 
 func portIsServed(port int) bool {
@@ -35,10 +33,7 @@ func portIsServed(port int) bool {
 	return false
 }
 
-func portPrinter(p Port, b bool) string {
-	cyan := color.New(color.FgCyan).SprintFunc()
-	green := color.New(color.FgGreen).SprintFunc()
-	red := color.New(color.FgRed).SprintFunc()
-	info := map[bool]string{true: green("yes"), false: red("not")}[b]
-	return fmt.Sprintf("Check port %s(:%s) open: %s", cyan(p.Name), cyan(p.Port), info)
+func portPrinter(p Port, b bool) {
+	result := map[bool]string{true: green("yes"), false: red("not")}[b]
+	fmt.Printf("Check port %s(:%s) open  ...  %s\n", cyan(p.Name), cyan(p.Port), result)
 }

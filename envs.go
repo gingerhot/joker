@@ -5,8 +5,6 @@ package main
 import (
 	"fmt"
 	"os"
-
-	"github.com/fatih/color"
 )
 
 type Env struct {
@@ -15,14 +13,11 @@ type Env struct {
 	Expected string
 }
 
-func CheckEnv(e Env) string {
-	return envPrinter(e, os.Getenv(e.Env) == e.Expected)
+func CheckEnv(e Env) {
+	envPrinter(e, os.Getenv(e.Env) == e.Expected)
 }
 
-func envPrinter(e Env, b bool) string {
-	cyan := color.New(color.FgCyan).SprintFunc()
-	green := color.New(color.FgGreen).SprintFunc()
-	red := color.New(color.FgRed).SprintFunc()
-	info := map[bool]string{true: green("yes"), false: red("not")}[b]
-	return fmt.Sprintf("Check env varible %s(%s=%s) match: %s", cyan(e.Name), cyan(e.Env), e.Expected, info)
+func envPrinter(e Env, b bool) {
+	result := map[bool]string{true: green("yes"), false: red("not")}[b]
+	fmt.Printf("Check env varible %s(%s=%s) match  ...  %s\n", cyan(e.Name), cyan(e.Env), e.Expected, result)
 }
