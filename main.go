@@ -1,9 +1,6 @@
 package main
 
-import (
-	"flag"
-	"fmt"
-)
+import "flag"
 
 func main() {
 	flag.Parse()
@@ -14,27 +11,22 @@ func main() {
 	conf := ReadConfig(confPath)
 
 	for _, port := range conf.Ports {
-		r := CheckPort(port)
-		fmt.Println(r)
+		CheckPort(port)
 	}
 
 	for _, cmd := range conf.Cmds {
-		r := CheckCmd(cmd)
-		fmt.Println(r)
+		CheckCmd(cmd)
 	}
 
 	for _, env := range conf.Envs {
-		r := CheckEnv(env)
-		fmt.Println(r)
+		CheckEnv(env)
 	}
 
 	for _, output := range conf.Outputs {
-		r := CheckOutput(output)
-		fmt.Println(r)
+		CheckOutput(output)
 	}
 
 	for _, path := range conf.Paths {
-		r := CheckPath(path)
-		fmt.Println(r)
+		CheckPath(path)
 	}
 }

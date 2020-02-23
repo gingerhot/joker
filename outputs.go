@@ -6,8 +6,6 @@ import (
 	"fmt"
 	"os/exec"
 	"strings"
-
-	"github.com/fatih/color"
 )
 
 type Output struct {
@@ -16,8 +14,8 @@ type Output struct {
 	Expected string
 }
 
-func CheckOutput(o Output) string {
-	return outputPrinter(o, runCmd(o.Cmd) == o.Expected)
+func CheckOutput(o Output) {
+	outputPrinter(o, runCmd(o.Cmd) == o.Expected)
 }
 
 func runCmd(cmd string) string {
@@ -28,10 +26,7 @@ func runCmd(cmd string) string {
 	return strings.TrimSpace(string(output))
 }
 
-func outputPrinter(o Output, b bool) string {
-	cyan := color.New(color.FgCyan).SprintFunc()
-	green := color.New(color.FgGreen).SprintFunc()
-	red := color.New(color.FgRed).SprintFunc()
-	info := map[bool]string{true: green("yes"), false: red("not")}[b]
-	return fmt.Sprintf("Check command result %s(%s) match: %s", cyan(o.Name), cyan(o.Cmd), info)
+func outputPrinter(o Output, b bool) {
+	result := map[bool]string{true: green("yes"), false: red("not")}[b]
+	fmt.Printf("Check command result %s(%s) match  ...  %s\n", cyan(o.Name), cyan(o.Cmd), result)
 }

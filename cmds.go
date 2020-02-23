@@ -5,8 +5,6 @@ package main
 import (
 	"fmt"
 	"os/exec"
-
-	"github.com/fatih/color"
 )
 
 type Cmd struct {
@@ -14,11 +12,11 @@ type Cmd struct {
 	Name string
 }
 
-func CheckCmd(c Cmd) string {
+func CheckCmd(c Cmd) {
 	if c.Cmd == "" {
-		return cmdPrinter(c, false)
+		cmdPrinter(c, false)
 	}
-	return cmdPrinter(c, runChech(c.Cmd))
+	cmdPrinter(c, runChech(c.Cmd))
 }
 
 func runChech(cmd string) bool {
@@ -30,10 +28,7 @@ func runChech(cmd string) bool {
 	return true
 }
 
-func cmdPrinter(c Cmd, b bool) string {
-	cyan := color.New(color.FgCyan).SprintFunc()
-	green := color.New(color.FgGreen).SprintFunc()
-	red := color.New(color.FgRed).SprintFunc()
-	info := map[bool]string{true: green("yes"), false: red("not")}[b]
-	return fmt.Sprintf("Check command %s(%s) exist: %s", cyan(c.Name), cyan(c.Cmd), info)
+func cmdPrinter(c Cmd, b bool) {
+	result := map[bool]string{true: green("yes"), false: red("not")}[b]
+	fmt.Printf("Check command %s(%s) exist  ...  %s\n", cyan(c.Name), cyan(c.Cmd), result)
 }
