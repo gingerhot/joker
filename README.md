@@ -14,7 +14,7 @@ Joker provides several kinds of checking as:
 
 ## Compatibility
 
-* macOS and Linux supported, not Windows at present.
+* macOS and Linux supported, no Windows
 * Bash shell only
 
 ## Installation
@@ -40,6 +40,8 @@ joker example.yaml
 <img src="https://raw.githubusercontent.com/image-store/github/master/joker.png" >
 
 if you named your config file as exact `joker.yaml`, just run `joker` and it will work perfectly.
+
+Get more help by `joker -h`.
 
 Joker is handy, enjoy!
 

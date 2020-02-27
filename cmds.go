@@ -12,11 +12,11 @@ type Cmd struct {
 	Name string
 }
 
-func CheckCmd(c Cmd) {
+func CheckCmd(c Cmd, v bool) {
 	if c.Cmd == "" {
-		cmdPrinter(c, false)
+		cmdPrinter(c, false, false)
 	}
-	cmdPrinter(c, runChech(c.Cmd))
+	cmdPrinter(c, runChech(c.Cmd), v)
 }
 
 func runChech(cmd string) bool {
@@ -28,7 +28,11 @@ func runChech(cmd string) bool {
 	return true
 }
 
-func cmdPrinter(c Cmd, b bool) {
-	result := map[bool]string{true: green("yes"), false: red("not")}[b]
-	fmt.Printf("Check command %s(%s) exist  ...  %s\n", cyan(c.Name), cyan(c.Cmd), result)
+func cmdPrinter(c Cmd, ok, verbose bool) {
+	result := map[bool]string{true: green("yes"), false: red("not")}[ok]
+	if verbose {
+		fmt.Printf("Check command %s(%s) exist  ...  %s\n", cyan(c.Name), cyan(c.Cmd), result)
+	} else {
+		fmt.Printf("Check command %s exist  ...  %s\n", cyan(c.Name), result)
+	}
 }

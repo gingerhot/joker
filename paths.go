@@ -14,8 +14,8 @@ type Path struct {
 	Name string
 }
 
-func CheckPath(p Path) {
-	pathPrinter(p, doCheck(p.Path))
+func CheckPath(p Path, verbose bool) {
+	pathPrinter(p, doCheck(p.Path), verbose)
 }
 
 func doCheck(path string) bool {
@@ -41,7 +41,11 @@ func doCheck(path string) bool {
 	}
 }
 
-func pathPrinter(p Path, b bool) {
-	result := map[bool]string{true: green("yes"), false: red("not")}[b]
-	fmt.Printf("Check path %s(%s) exist  ...  %s\n", cyan(p.Name), cyan(p.Path), result)
+func pathPrinter(p Path, ok, verbose bool) {
+	result := map[bool]string{true: green("yes"), false: red("not")}[ok]
+	if verbose {
+		fmt.Printf("Check path %s(%s) exist  ...  %s\n", cyan(p.Name), cyan(p.Path), result)
+	} else {
+		fmt.Printf("Check path %s exist  ...  %s\n", cyan(p.Name), result)
+	}
 }
