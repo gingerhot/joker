@@ -14,18 +14,22 @@ Joker provides several kinds of checking as:
 
 ## Compatibility
 
-* macOS and Linux supported, no Windows
+* macOS and Linux supported, not Windows
 * Bash shell only
 
 ## Installation
 
 Just `go get` if you have a Go environment:
 
-```sehll
+```
 go get github.com/gingerhot/joker
 ```
 
-or install a binary from [Releases](https://github.com/gingerhot/joker/releases).
+or install a binary from [Releases](https://github.com/gingerhot/joker/releases):
+```
+curl -sL $(curl -s https://api.github.com/repos/gingerhot/joker/releases/latest | grep "browser_download_url.*.gz" | grep $(uname -s | tr '[:upper:]' '[:lower:]') | cut -d '"' -f 4) | tar xz -C /tmp
+sudo mv /tmp/joker /usr/local/bin/joker
+```
 
 ## Usage
 
@@ -33,7 +37,7 @@ You can check [example.yaml](../master/example.yaml) to get how to config to che
 
 When you have such a yaml-format config file, then run:
 
-```shell
+```
 joker example.yaml
 ```
 
